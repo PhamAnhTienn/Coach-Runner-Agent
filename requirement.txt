@@ -1,0 +1,14 @@
+streamlit
+torch==2.1.2
+python-dotenv
+langchain
+langchain_huggingface
+langchain-text-splitters
+langchain-community
+langchain_groq
+langchain_pinecone
+langchain_core
+PyPDF2
+faiss-cpu
+sentence-transformers
+pinecone
