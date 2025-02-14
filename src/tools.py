@@ -11,8 +11,8 @@ customers_database = [
 ]
 
 orders_database = [
-    {"order_id": "ORD001", "customer_id": "CUST001", "status": "Processing", "items": ["Red Roses Bouquet"], "quantity": [1]},
-    {"order_id": "ORD002", "customer_id": "CUST002", "status": "Shipped", "items": ["Mixed Tulips", "Vase"], "quantity": [3, 1]},
+    {"order_id": "ORD001", "customer_id": "CUST001", "status": "Processing", "items": ["Men's Lightweight Running Shoes"], "quantity": [1]},
+    {"order_id": "ORD002", "customer_id": "CUST002", "status": "Shipped", "items": ["Men's Lightweight Running Shoes", "Trail Running Shoes"], "quantity": [3, 1]},
 ]
 
 with open('inventory.json', 'r') as f:
@@ -104,7 +104,7 @@ def query_knowledge_base(query: str) -> List[Dict[str, str]]:
 
 
 @tool
-def search_for_product_reccommendations(description: str):
+def search_for_product_recommendations(description: str):
     """
     Looks up information in a knowledge base to help with product recommendation for customers. For example:
 

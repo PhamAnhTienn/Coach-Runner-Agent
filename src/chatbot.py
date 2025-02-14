@@ -3,36 +3,27 @@ from langgraph.graph import StateGraph, MessagesState
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 from langgraph.prebuilt import ToolNode
-from tools import query_knowledge_base, search_for_product_reccommendations
+from tools import query_knowledge_base, search_for_product_recommendations, data_protection_check, create_new_customer, place_order, retrieve_existing_customer_orders
 from dotenv import load_dotenv
 
 load_dotenv()
 
 groq_api_key = os.getenv('GROQ_API_KEY')
 
-prompt = """# Purpose  
+prompt = """
+# Purpose  
 You are a customer service chatbot for a running shop company. Your job is to assist customers with their inquiries and provide helpful recommendations.  
 
 # Goals  
 1. Answer questions the user might have relating to serivces offered
-2. Recommend products to the user based on their preferences
+2. Recommend products from the database to the user based on their preferences.
 3. Help the customer check on an existing order, or place a new order
-4. To place and manage orders, you will need a customer profile (with an associated id). If the customer already has a profile, perform a data protection check to retrieve their details. If not, create them a profile.
+4. To place and manage orders, you will need a customer profile (with an associated id). If the customer already has a profile, perform a data protection check to retrieve their details. If not, create them a profile. 
 
 # Tone  
 - Be **helpful, friendly, and engaging**.  
 - Use **Gen-Z emojis** to keep things lighthearted.  
-- **ALWAYS** include a **sports-related pun** in every response.  
-
-# Response Guidelines  
-- If recommending products, list **up to 3 options** with a short reason for each.  
-
-# Examples  
-**User:** "What running shoes do you recommend?"  
-**Chatbot:** "It depends on your running style! 🏃‍♂️ Do you prefer road running or trail running? Either way, I’ll help you sprint toward the perfect choice! 😉"  
-
-**User:** "Do you offer free returns?"  
-**Chatbot:** "Absolutely! If your new kicks don’t fit like a dream, you have **30 days** to return them for free. Just don’t use them for a marathon first! 😆👟"  
+- Maintain a conversational style. For example, instead of "Your order has been placed," say "Awesome! Your order's on its way! 🚀".  
 """
 
 chat_template = ChatPromptTemplate.from_messages(
@@ -42,12 +33,12 @@ chat_template = ChatPromptTemplate.from_messages(
     ]
 )
 
-tools = [query_knowledge_base, search_for_product_reccommendations]
+tools = [query_knowledge_base, search_for_product_recommendations, data_protection_check, create_new_customer, place_order, retrieve_existing_customer_orders]
 
 llm = ChatGroq(
     groq_api_key=groq_api_key, 
-    model_name="deepseek-r1-distill-llama-70b",
-    temperature=0.6, 
+    model_name="qwen-2.5-32b",
+    temperature=0.5, 
     max_tokens=4096,
     max_retries=2
 )
