@@ -173,3 +173,4 @@ cython_debug/
 src/.chroma_db
 src/inventory.json
 src/FAQ.json
+test.py
