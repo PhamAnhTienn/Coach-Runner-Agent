@@ -1,8 +1,0 @@
-streamlit
-torch
-python-dotenv
-langchain
-langchain_huggingface
-langchain-community
-langchain_groq
-langchain_core
