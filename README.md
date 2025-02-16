@@ -2,7 +2,9 @@
 
 Coach Runner Agent is an intelligent customer support assistant designed for runner stores. It leverages a vector store to efficiently retrieve information, providing personalized product recommendations and assisting customers with inquiries and order management.  
 
-![Architecture](./docs/images/diagram.png)
+<p align="center">
+  <img src="./docs/images/diagram.png" alt="Architecture">
+</p>
 
 ## 📖  Table of Contents
 - [⚙️ Features](#-features)
@@ -18,9 +20,21 @@ Coach Runner Agent is an intelligent customer support assistant designed for run
 - 📦 Manage orders, including checking existing orders and placing new ones.  
 - 👤 Create or retrieve customer profiles securely for order management. 
 
-![picture3](./docs/images/pitcture3.png)
-![picture2](./docs/images/pitcture2.png)
-![picture1](./docs/images/pitcture1.png)
+<p align="center">
+  <img src="./docs/images/pitcture3.png" alt="Picture 3">
+</p>
+
+---
+
+<p align="center">
+  <img src="./docs/images/pitcture2.png" alt="Picture 2">
+</p>
+
+---
+
+<p align="center">
+  <img src="./docs/images/pitcture1.png" alt="Picture 1">
+</p>
 
 
 ## 🛠️ Tech Stack  
