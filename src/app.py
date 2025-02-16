@@ -1,5 +1,4 @@
 import streamlit as st
-from vector_store import RunnerShopVectorStore
 from chatbot import app
 from langchain_core.messages import AIMessage, HumanMessage
 from tools import customers_database, data_protection_checks
@@ -107,7 +106,7 @@ with main_container:
     for message in reversed(st.session_state.message_history):
         if isinstance(message, AIMessage):
             message_box = st.chat_message('assistant', avatar="🏃")
-        else:
+        elif isinstance(message, HumanMessage):
             message_box = st.chat_message('user', avatar="👤")
         
         message_box.markdown(message.content)

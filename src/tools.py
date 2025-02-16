@@ -121,19 +121,24 @@ def search_for_product_recommendations(description: str):
     return vector_store.query_inventories(query=description)
 
 @tool
-def retrieve_existing_customer_orders(customer_id: str) -> List[Dict]:
+def retrieve_existing_customer_orders(customer_data: dict) -> List[Dict]:
     """
-    Retrieves the orders associated with the customer, including their status, items and ids
+    Retrieves the orders associated with the customer, including their status, items and ids.
 
     Args:
-        customer_id (str): Customer unique id associated with the order
+        customer_data (dict): JSON object containing customer details, including customer_id.
 
     Returns:
-        List[Dict]: All the orders associated with the customer_id passed in
+        List[Dict]: All the orders associated with the customer_id passed in.
     """
+    customer_id = customer_data.get("customer_id")
+    if not customer_id:
+        return "Customer ID is missing"
+
     customer_orders = [order for order in orders_database if order['customer_id'] == customer_id]
     if not customer_orders:
         return f"No orders associated with this customer id: {customer_id}"
+    
     return customer_orders
 
 @tool
