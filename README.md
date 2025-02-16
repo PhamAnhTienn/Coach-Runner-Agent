@@ -27,13 +27,13 @@ Coach Runner Agent is an intelligent customer support assistant designed for run
 ---
 
 <p align="center">
-  <img src="./docs/images/pitcture2.png" alt="Picture 2">
+  <img src="./docs/images/pitcture1.png" alt="Picture 1">
 </p>
 
 ---
 
 <p align="center">
-  <img src="./docs/images/pitcture1.png" alt="Picture 1">
+  <img src="./docs/images/pitcture2.png" alt="Picture 2">
 </p>
 
 
